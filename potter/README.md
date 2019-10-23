@@ -30,3 +30,7 @@ hicimos una rápida investigación (_research_) y estos son algunos de los halla
 - Los personajes de la saga pueden hacer diferentes hechizos y uno de los más famosos 
   es el _patronum_, para una bruja o mago es curioso saber si el suyo se parece a los de
   la saga.
+
+
+
+  OBJETIVOS DE APRENDIZAJE 
