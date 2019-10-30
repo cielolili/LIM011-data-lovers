@@ -1,7 +1,5 @@
-/* Manejo de data */
+export const mostrar = (datos) => {
 
-// esta es una función de ejemplo
-
-export const example = () => {
-  return 'example';
+console.log('holas');
+  return 'mostrar';
 };

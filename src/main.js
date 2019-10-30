@@ -1,15 +1,32 @@
-/**
- * import POKEMON from './data/pokemon/pokemon.js'
- * import LoL from './data/lol/lol.js'
- * import POTTER from './data/potter/potter.js'
- */
+import POTTER from './data/potter/potter.js';
 
-import { example } from './data.js';
+import { mostrar } from './data.js';
 
-console.log(example);
+const personajes= document.querySelector(' #personajes');
+let vistaPersonajes = '';
+for (let i = 0; i < POTTER.length; i++) {
+  vistaPersonajes += `
+  <div class = "lisPersonajes">
+  <img class =" imagen" src= ${POTTER[i].image}>
+  <div> ${POTTER[i].name} </div>
+  
+  
+  </div>
+  `;
+  personajes.innerHTML = vistaPersonajes;
+}
+console.log(mostrar);
+console.log(POTTER);
 
-/*
- * console.log(POKEMON);
- * console.log(LoL);
- * console.log(POTTER)
-*/
+const btnpersonajes = document.querySelector( '#btnpersonajes');
+const btnvaritas = document.querySelector( '#btnvaritas');
+const btnpatronun = document.querySelector( '#btnpatronun');
+const vista1 = document.querySelector( '#vista1');
+const vista3 = document.querySelector( '#vista3');
+
+btnpersonajes.addEventListener("click", (event) => {
+  event.preventDefault();
+  vista1.classList.add('hide');
+  personajes.classList.remove('hide');
+});
+

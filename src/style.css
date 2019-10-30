@@ -1,0 +1,48 @@
+body{
+    background: radial-gradient(circle closest-side, #09104F, #181E56, #111113);
+    width: 1440px;
+    height: 1024spx;
+} 
+#name{
+    width: 50%;
+    height: 50%;
+    background-color: aqua;
+}
+#personajes{
+    width: 80%;
+}
+.listPersonajes{
+    justify-content: space-around;
+    display: inline-block;
+    margin: 10px 10px 10px 5px;
+
+}
+.imagen{
+    width: 100px;
+    height: 100px;
+}
+#btnpersonajes{
+    background-image: url(IMG/perso6.jpg);
+    width: 400px;
+    height: 400px;
+    margin-top: 300px;
+    margin-left: 90px;   
+}
+.hide {
+    display: none;
+    
+}
+
+#btnvaritas{
+    background-image: url(IMG/varit2.jpg);
+    width: 400px;
+    height: 400px;
+    margin-left: 75px;    
+}
+#btnpatronum{
+    background-image: url(IMG/patro1.jpg);
+    width: 400px;
+    height: 400px;
+    margin-left: 65.010px;
+
+}
