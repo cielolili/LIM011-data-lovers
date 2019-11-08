@@ -1,27 +1,97 @@
-body{
-    background: radial-gradient(circle closest-side, #09104F, #181E56, #111113);
-    width: 1440px;
-    height: 1024spx;
-} 
-#name{
-    width: 50%;
-    height: 50%;
-    background-color: aqua;
-}
-#personajes{
-    width: 80%;
-}
-.listPersonajes{
-    justify-content: space-around;
-    display: inline-block;
-    margin: 10px 10px 10px 5px;
+*{
+    padding: 0;
+    margin: 0;
 
 }
-.imagen{
-    width: 100px;
-    height: 100px;
+body{
+    background: white;
+    width: 1440px;
+    height: 1024px;
+    background-image: url(IMG/fondoEstrella.gif) ; 
+ 
+  } 
+  #encabezado{
+      height: 400px;
+      width: 1300px;
+  }
+.todos{
+    width: 50%;
+    height: 50%;
+    color: white;
+    margin: 20px;
+    padding: 20px;
 }
-#btnpersonajes{
+#datospersonajes{
+   
+    float: left;
+}
+.ordenar1{
+    font-size: 40px;
+    background-image:url(IMG/prob.gif);
+    width: 700px;
+    padding: 100px;
+    margin-left: 250px;
+    float: left;
+    height: 1200px;
+}
+.ordenar{
+    float: left;
+    overflow: auto;
+    margin-left: 40px;
+    background-color: d;
+    height: 400px;
+    list-style: none;
+}
+
+.name{
+        color: white;
+        margin-left: 20px;
+        text-align: left;
+}
+.imagen1{
+    float: left;
+    height: 400px;
+    width: 400px;
+    float: left;
+    border-radius: 70px;
+    margin: auto;
+    margin-bottom: 80px;
+    display: block;
+    border: 20px solid black;
+    animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s infinite;
+  }
+  @-webkit-keyframes mymove {
+      50% {border-color: lightblue;}
+    }
+    
+    @keyframes mymove {
+      50% {border-color: lightblue;}
+    }
+
+.imagen{
+    float: left;
+    height: 256px;
+    width: 256px;
+    border-radius: 70px;
+    margin: auto;
+    display: block;
+    border: 20px solid black;
+    animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s infinite;
+  }
+  @-webkit-keyframes mymove {
+      50% {border-color: lightblue;}
+    }
+    
+    @keyframes mymove {
+      50% {border-color: lightblue;}
+    }
+  #nombre{
+      font-size: 40px;
+      color: white;
+  }
+ #btnpersonajes{
     background-image: url(IMG/perso6.jpg);
     width: 400px;
     height: 400px;
@@ -46,3 +116,47 @@ body{
     margin-left: 65.010px;
 
 }
+
+#seleccionar{
+    font-size: 30px;
+    width: 300px;
+}
+#seleccionar2{
+    font-size: 30px;
+    width: 300px;
+}
+#roles{
+    font-size: 60px;
+    text-align: center;
+    background-image: url(IMG/fondocasa.jpg);
+}
+
+#profesores, #estudiantes{
+    display: inline;
+	padding:2px;
+    border:1px solid#CCCCCC;
+    margin-right: auto;
+    }
+ #gry, #sly, #raven, #huffle{
+    height: 80px;
+    margin:5px;
+    border:5px solid#CCCCCC;
+    width: 230px;
+    font-size: 60px;
+    padding: 25px;
+}
+
+#casas{
+    background-image: url(IMG/fondocasa.jpg);
+    font-size: 50px;
+    width: 300px;
+    margin-top: 60px;
+}
+.nombre{
+    color: white;
+    font-size: 30px;
+}
+#casas{
+    font-family: 'Fredericka the Great', cursive;
+}
+

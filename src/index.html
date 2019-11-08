@@ -7,24 +7,54 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body> 
     <header> 
-            <img src="IMG/Harry-Potter-Logo.png" alt="">
-    </header>
-
-    <div id="root"> </div>
-    <div id="vista1" class="">
-        <button id="btnpersonajes"></button>
-        <button id="btnvaritas"></button>
-        <button id="btnpatronum"></button> 
-
-    </div>
-
-    <div id="personajes" class="hide">
-
-    </div>
-
+      <img src="IMG/gif.gif" id="encabezado"class="titulo">
       
+      <select id="roles" class="hide"> 
+        <option id ="roles"value="">Roles</option>
+        <option id="estudiantes" class=""> Estudiantes </option>
+        <option id="profesores" class="">Profesores</o>
+      </select>
+    
+    </header>
+     <section> 
+          <select id="casas" class="hide"> 
+            <option id="generalCasas" class="">Casas</option>
+            <option id="gry" class="">Gryffindor </option> 
+            <option id="sly" class="">Slytherin</option> 
+            <option id ="huffle" class="">Hufflepuff</option> 
+            <option id="raven" class="">Ravenclaw</option> 
+          </select> 
+        </section> 
+    <main>
+          <section id="vista1" class="">
+           <button id="btnpersonajes"></button>
+           <button id="btnvaritas"></button>
+           <button id="btnpatronum"></button>        
+      </section>
+
+      <section id="vista2" class="hide">
+            
+      </section>
+
+      <section id="vista3" class="hide">
+        <h1>VARITAS</h1>
+      </section>
+      <section id="vista4" class="hide">
+        <h1>PATRONUMS</h1>
+      </section>
+
+      <section id="datosPersonaje" class="hide"></section>
+
+      <section id="rol1" class="hide"></section>
+      <section id="rol2" class="hide"></section>
+    
+      
+    </main>
+
+    <footer></footer>
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet">
     <script type="module" src="main.js"></script>
   </body>
 </html>
