@@ -1,60 +1,48 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <title>Data Lovers</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link rel="stylesheet" href="style.css" /> 
   </head>
   <body> 
-    <header> 
-      <img src="IMG/gif.gif" id="encabezado"class="titulo">
-      
-      <select id="roles" class="hide"> 
-        <option id ="roles"value="">Roles</option>
-        <option id="estudiantes" class=""> Estudiantes </option>
-        <option id="profesores" class="">Profesores</o>
-      </select>
-    
-    </header>
-     <section> 
-          <select id="casas" class="hide"> 
-            <option id="generalCasas" class="">Casas</option>
-            <option id="gry" class="">Gryffindor </option> 
-            <option id="sly" class="">Slytherin</option> 
-            <option id ="huffle" class="">Hufflepuff</option> 
-            <option id="raven" class="">Ravenclaw</option> 
-          </select> 
-        </section> 
-    <main>
-          <section id="vista1" class="">
-           <button id="btnpersonajes"></button>
-           <button id="btnvaritas"></button>
-           <button id="btnpatronum"></button>        
-      </section>
+       <header class=encabezado"> 
+            <section class="contenedor">
+               <h1 class="logo">HARRY <span>POTTER </span></h1>
+            </section>     
+       </header> 
+            <nav class="desplegable">
+                <select id="roles" class="hide"> 
+                    <option value ="0"> Roles </option>
+                    <option value="estudiantes"> Estudiantes </option>
+                    <option value="profesores">Profesores</option>
+                </select> 
+                <select id="casas" class="hide"> 
+                     <option value="0"> Casas </option> 
+                     <option value="Gryffindor">Gryffindor </option>  
+                     <option value="Slytherin">Slytherin</option>  
+                     <option value="Hufflepuff">Hufflepuff</option>  
+                     <option value="Ravenclaw">Ravenclaw</option> 
+                </select> 
+            </nav>
+            <main class="secciones">
+            <section id="vista1" class="">
+               <button id="btnpersonajes"></button>
+               <button id="btnvaritas"></button>
+               <button id="btnpatronum"></button>        
+            </section>
+            <section id="vista2" class="hide"></section>
+            <section id="vista3" class="hide"></section>
+            <section id="vista4" class="hide"></section>
+            <section id="datosPersonaje" class="hide"></section> 
+            <section id="rol1" class="hide"></section>
+            <section id="rol2" class="hide"></section>
+          </main>
 
-      <section id="vista2" class="hide">
-            
-      </section>
-
-      <section id="vista3" class="hide">
-        <h1>VARITAS</h1>
-      </section>
-      <section id="vista4" class="hide">
-        <h1>PATRONUMS</h1>
-      </section>
-
-      <section id="datosPersonaje" class="hide"></section>
-
-      <section id="rol1" class="hide"></section>
-      <section id="rol2" class="hide"></section>
-    
-      
-    </main>
-
-    <footer></footer>
-    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+          <footer></footer>
+  
     <script type="module" src="main.js"></script>
   </body>
 </html>

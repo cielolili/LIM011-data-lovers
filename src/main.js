@@ -1,147 +1,145 @@
 import POTTER from './data/potter/potter.js';
-import { filter } from './data.js';
+import { filterRolesHouses, filterPatronus, filterVaritas } from './data.js';
 // declarando mis variables
 const vista2 = document.querySelector('#vista2');
 const datosPersonaje = document.querySelector('#datosPersonaje');
 const vista1 = document.getElementById('vista1');
-const varitas = document.querySelector('#btnvaritas');
+const btnvaritas = document.querySelector('#btnvaritas');
 const patronum = document.querySelector('#btnpatronum');
 const vista3 = document.querySelector('#vista3');
 const vista4 = document.querySelector('#vista4');
-const btnestudiantes = document.querySelector('#estudiantes');
-const btnprofesores = document.querySelector('#profesores');
 const btnpersonajes = document.querySelector('#btnpersonajes');
-const btnsly = document.querySelector('#sly');
-const btnhuffle = document.querySelector('#huffle');
-const btnraven = document.querySelector('#raven');
-const btngry = document.querySelector('#gry');
-const roles = document.querySelector('#roles');
-const casas = document.querySelector('#casas');
-
+const selectRoles = document.querySelector('#roles');
+const selectCasas = document.querySelector('#casas');
 // Appenchild
+// appenchild: añade un elemento
+// innerHTML: añade un string
+
 const containerImage = (data) => {
   const sectionElement = document.createElement('section'); // creando sección de datos
   sectionElement.innerHTML = `
   <section class ="ordenar">
   <img class = "imagen" src= ${data.image}>
-  <p id="nombre"> ${data.name} </p>
+  <p class ="nombre"> ${data.name} </p>
   </section>
   `;
   sectionElement.addEventListener('click', (event) => {
     event.preventDefault();
     vista2.classList.add('hide');
-    roles.classList.add('hide');
-    btngry.classList.add('hide');
-    btnsly.classList.add('hide');
-    btnhuffle.classList.add('hide');
-    btnraven.classList.add('hide');
+    selectRoles.classList.add('hide');
+    selectCasas.classList.add('hide');
     datosPersonaje.classList.remove('hide');
     datosPersonaje.innerHTML = `
     <section class="ordenar1">
     <img class ="imagen1" src= ${data.image}>
+    <h2> DATOS DEL PERSONAJE</h2>
     <ul class ="todos">
-    <li id="name">Nombre: ${data.name}</li>
-    <li>Species: ${data.species}</li>
-    <li>Gender: ${data.gender}</li>
-    <li>House: ${data.house}</li>   
-    <li>Date Of Birth: ${data.dateOfBirth}</li>  
-    <li>Year Of Birth: ${data.yearOfBirth}</li>    
-    <li>Ancestry: ${data.ancestry}</li>    
-    <li>Eye colour: ${data.eyeColour}</li>   
-    <li>Hair Colour: ${data.hairColour}</li>   
-    <li>Actor: ${data.actor}</li>    
+    <li class="name">Nombre: ${data.name}</li>
+    <li class ="name">Species: ${data.species}</li>
+    <li class ="name">Gender: ${data.gender}</li>
+    <li class="name">House: ${data.house}</li>   
+    <li class ="name">Date Of Birth: ${data.dateOfBirth}</li>  
+    <li class ="name">Year Of Birth: ${data.yearOfBirth}</li>    
+    <li class ="name">Ancestry: ${data.ancestry}</li>    
+    <li class ="name">Eye colour: ${data.eyeColour}</li>   
+    <li class ="name">Hair Colour: ${data.hairColour}</li>   
+    <li class ="name">Actor: ${data.actor}</li>    
     </ul>
     </section>
     `;
   });
-
-  vista2.appendChild(sectionElement);
-  // añade un hijo más, no borra nada como el innerHTML
+  return sectionElement;
 };
-
-
 for (let i = 0; i < POTTER.length; i += 1) {
-  containerImage(POTTER[i]);
-}
-
-// data = POTTER[i] <- argumento
+  vista2.appendChild(containerImage(POTTER[i]));
+  // añade un hijo más, no borra nada como el innerHTML
+} // data = POTTER[i] <- argumento
 
 // empezando mis eventos
 btnpersonajes.addEventListener('click', (event) => {
   event.preventDefault();
   vista1.classList.add('hide');
   vista2.classList.remove('hide');
-  roles.classList.remove('hide');
-  casas.classList.remove('hide');
-  btngry.classList.remove('hide');
-  btnsly.classList.remove('hide');
-  btnhuffle.classList.remove('hide');
-  btnraven.classList.remove('hide');
+  selectRoles.classList.remove('hide');
+  selectCasas.classList.remove('hide');
 });
-
-// Funcion ocultar para boton varitas
-varitas.addEventListener('click', (event) => {
-  event.preventDefault();
-  vista1.classList.add('hide');
-  vista3.classList.remove('hide');
+selectCasas.addEventListener('change', (event) => {
+  vista2.innerHTML = '';
+  if (event.target.value === 'Gryffindor') {
+    const filterHouseGry = filterRolesHouses(POTTER, 'house', 'Gryffindor');
+    for (let i = 0; i < filterHouseGry.length; i += 1) {
+      vista2.appendChild(containerImage(filterHouseGry[i]));
+    }
+  } else if (event.target.value === 'Slytherin') {
+    const filterHouseSly = filterRolesHouses(POTTER, 'house', 'Slytherin');
+    for (let i = 0; i < filterHouseSly.length; i += 1) {
+      vista2.appendChild(containerImage(filterHouseSly[i]));
+    }
+  } else if (event.target.value === 'Hufflepuff') {
+    const filterHouseHuffle = filterRolesHouses(POTTER, 'house', 'Hufflepuff');
+    for (let i = 0; i < filterHouseHuffle.length; i += 1) {
+      vista2.appendChild(containerImage(filterHouseHuffle[i]));
+    }
+  } else if (event.target.value === 'Ravenclaw') {
+    const filterHouseRaven = filterRolesHouses(POTTER, 'house', 'Ravenclaw');
+    for (let i = 0; i < filterHouseRaven.length; i += 1) {
+      vista2.appendChild(containerImage(filterHouseRaven[i]));
+    }
+  }
 });
-
-// Funcion ocultar para boton patronum
+selectRoles.addEventListener('change', (event) => {
+  vista2.innerHTML = '';
+  if (event.target.value === 'estudiantes') {
+    const filterEstudiantes = filterRolesHouses(POTTER, 'hogwartsStudent', true);
+    for (let i = 0; i < filterEstudiantes.length; i += 1) {
+      vista2.appendChild(containerImage(filterEstudiantes[i]));
+    }
+  } else if (event.target.value === 'profesores') {
+    const filterProfesores = filterRolesHouses(POTTER, 'hogwartsStaff', true);
+    for (let i = 0; i < filterProfesores.length; i += 1) {
+      vista2.appendChild(containerImage(filterProfesores[i]));
+    }
+  }
+});
+const imagePatronus = (data) => {
+  let newPatronum = '';
+  for (let i = 0; i < data.length; i += 1) {
+    newPatronum += `
+    <section class = "ordenar">
+    <img class ="imagen" src=${data[i].image}>
+    <p class ="nombre"> ${data[i].name} </p>
+    <p class ="nombre"> ${data[i].patronus} </p>
+    </section>
+    `;
+  }
+  return newPatronum;
+};
 patronum.addEventListener('click', (event) => {
   event.preventDefault();
   vista1.classList.add('hide');
   vista4.classList.remove('hide');
+  const filterpatronus1 = filterPatronus(POTTER, 'patronus');
+  vista4.innerHTML = imagePatronus(filterpatronus1);
 });
-btngry.addEventListener('click', (event) => {
-  event.preventDefault();
-  vista2.innerHTML = ''; // porque ya está creada la función.
-  const filterHouseGry = filter(POTTER, 'house', 'Gryffindor');
-  for (let i = 0; i < filterHouseGry.length; i += 1) {
-    containerImage(filterHouseGry[i]);
+const imageVaritas = (data) => {
+  let newVaritas = '';
+  for (let i = 0; i < data.length; i += 1) {
+    newVaritas += `
+      <section class="ordenar">
+        <img class="imagen" src=${data[i].image}>
+        <p class="nombre"> Madera: ${data[i].wand.wood} </p>
+        <p class="nombre"> Núcleo: ${data[i].wand.core} </p>
+        <p class="nombre"> Pertenece: ${data[i].name} </p>
+      
+      </section>
+    `;
   }
-});
-btnsly.addEventListener('click', (event) => {
+  return newVaritas;
+};
+btnvaritas.addEventListener('click', (event) => {
   event.preventDefault();
-  vista2.innerHTML = '';
-  const filterHouseSly = filter(POTTER, 'house', 'Slytherin');
-  for (let i = 0; i < filterHouseSly.length; i += 1) {
-    containerImage(filterHouseSly[i]);
-  }
+  vista1.classList.add('hide');
+  vista3.classList.remove('hide');
+  const filterVaritas1 = filterVaritas(POTTER, 'wand');
+  vista3.innerHTML = imageVaritas(filterVaritas1);
 });
-btnhuffle.addEventListener('click', (event) => {
-  event.preventDefault();
-  vista2.innerHTML = '';
-  const filterHouseHuffle = filter(POTTER, 'house', 'Hufflepuff');
-  for (let i = 0; i < filterHouseHuffle.length; i += 1) {
-    containerImage(filterHouseHuffle[i]);
-  }
-});
-btnraven.addEventListener('click', (event) => {
-  event.preventDefault();
-  vista2.innerHTML = '';
-  const filterHouseRaven = filter(POTTER, 'house', 'Ravenclaw');
-  for (let i = 0; i < filterHouseRaven.length; i += 1) {
-    containerImage(filterHouseRaven[i]);
-  }
-});
-
-btnestudiantes.addEventListener('click', (event) => {
-  event.preventDefault();
-  vista2.innerHTML = '';
-  const filterEstudiantes = filter(POTTER, 'hogwartsStudent', false);
-  for (let i = 0; i < filterEstudiantes.length; i += 1) {
-    containerImage(filterEstudiantes[i]);
-  }
-});
-btnprofesores.addEventListener('click', (event) => {
-  event.preventDefault();
-  vista2.innerHTML = '';
-  const filterProfesores = filter(POTTER, 'hogwartsStaff', false);
-  for (let i = 0; i < filterProfesores.length; i += 1) {
-    containerImage(filterProfesores[i]);
-  }
-});
-
-/*
-console.log(POTTER)
-*/
