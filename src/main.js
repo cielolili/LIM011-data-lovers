@@ -3,7 +3,7 @@ import { filterRolesHouses, filterPatronus, filterVaritas } from './data.js';
 // declarando mis variables
 const vista2 = document.querySelector('#vista2');
 const datosPersonaje = document.querySelector('#datosPersonaje');
-const vista1 = document.getElementById('vista1');
+const vista1 = document.querySelector('#vista1');
 const btnvaritas = document.querySelector('#btnvaritas');
 const patronum = document.querySelector('#btnpatronum');
 const vista3 = document.querySelector('#vista3');
@@ -31,21 +31,21 @@ const containerImage = (data) => {
     datosPersonaje.classList.remove('hide');
     datosPersonaje.innerHTML = `
     <section class="ordenar1">
-    <img class ="imagen1" src= ${data.image}>
-    <h2> DATOS DEL PERSONAJE</h2>
-    <ul class ="todos">
-    <li class="name">Nombre: ${data.name}</li>
-    <li class ="name">Species: ${data.species}</li>
-    <li class ="name">Gender: ${data.gender}</li>
-    <li class="name">House: ${data.house}</li>   
-    <li class ="name">Date Of Birth: ${data.dateOfBirth}</li>  
-    <li class ="name">Year Of Birth: ${data.yearOfBirth}</li>    
-    <li class ="name">Ancestry: ${data.ancestry}</li>    
-    <li class ="name">Eye colour: ${data.eyeColour}</li>   
-    <li class ="name">Hair Colour: ${data.hairColour}</li>   
-    <li class ="name">Actor: ${data.actor}</li>    
-    </ul>
-    </section>
+       <img class ="imagen1" src= ${data.image}>
+       <h2> DATOS DEL PERSONAJE</h2>
+          <ul>
+             <li class="name">Nombre: ${data.name}</li>
+             <li class ="name">Species: ${data.species}</li>
+             <li class ="name">Gender: ${data.gender}</li>
+             <li class="name">House: ${data.house}</li>   
+             <li class ="name">Date Of Birth: ${data.dateOfBirth}</li>  
+             <li class ="name">Year Of Birth: ${data.yearOfBirth}</li>    
+             <li class ="name">Ancestry: ${data.ancestry}</li>    
+             <li class ="name">Eye colour: ${data.eyeColour}</li>   
+             <li class ="name">Hair Colour: ${data.hairColour}</li>   
+             <li class ="name">Actor: ${data.actor}</li>    
+          </ul>
+   </section>
     `;
   });
   return sectionElement;
@@ -58,7 +58,9 @@ for (let i = 0; i < POTTER.length; i += 1) {
 // empezando mis eventos
 btnpersonajes.addEventListener('click', (event) => {
   event.preventDefault();
-  vista1.classList.add('hide');
+  btnpersonajes.classList.add('hide');
+  btnvaritas.classList.add('hide');
+  btnpatronum.classList.add('hide');
   vista2.classList.remove('hide');
   selectRoles.classList.remove('hide');
   selectCasas.classList.remove('hide');
@@ -116,7 +118,9 @@ const imagePatronus = (data) => {
 };
 patronum.addEventListener('click', (event) => {
   event.preventDefault();
-  vista1.classList.add('hide');
+  btnpersonajes.classList.add('hide');
+  btnvaritas.classList.add('hide');
+  btnpatronum.classList.add('hide');
   vista4.classList.remove('hide');
   const filterpatronus1 = filterPatronus(POTTER, 'patronus');
   vista4.innerHTML = imagePatronus(filterpatronus1);
@@ -138,7 +142,9 @@ const imageVaritas = (data) => {
 };
 btnvaritas.addEventListener('click', (event) => {
   event.preventDefault();
-  vista1.classList.add('hide');
+  btnpersonajes.classList.add('hide');
+  btnvaritas.classList.add('hide');
+  btnpatronum.classList.add('hide');
   vista3.classList.remove('hide');
   const filterVaritas1 = filterVaritas(POTTER, 'wand');
   vista3.innerHTML = imageVaritas(filterVaritas1);
