@@ -1,6 +1,6 @@
 export const filterRolesHouses = (data, propiedad, value) => {
   const newArray = [];
-  for (let i = 0; i < data.length; i += 1) {
+  for (let i = 0; i < data.length; i += 1) { // data => array de objetos
     if (data[i][propiedad] === value) {
       newArray.push({
         name: data[i].name,

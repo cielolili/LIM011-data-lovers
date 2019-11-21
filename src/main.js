@@ -2,26 +2,30 @@ import POTTER from './data/potter/potter.js';
 import { filterRolesHouses, filterPatronus, filterVaritas } from './data.js';
 // declarando mis variables
 const vista2 = document.querySelector('#vista2');
-const datosPersonaje = document.querySelector('#datosPersonaje');
-const vista1 = document.querySelector('#vista1');
-const btnvaritas = document.querySelector('#btnvaritas');
-const patronum = document.querySelector('#btnpatronum');
 const vista3 = document.querySelector('#vista3');
+
 const vista4 = document.querySelector('#vista4');
+const datosPersonaje = document.querySelector('#datosPersonaje');
+const btnvaritas = document.querySelector('#btnvaritas');
+const btnpatronum = document.querySelector('#btnpatronum');
 const btnpersonajes = document.querySelector('#btnpersonajes');
 const selectRoles = document.querySelector('#roles');
 const selectCasas = document.querySelector('#casas');
 // Appenchild
 // appenchild: añade un elemento
 // innerHTML: añade un string
+const botonRegresaInicio = document.createElement('button');
+const creaTexto = document.createTextNode('Regresa al inicio');
+botonRegresaInicio.appendChild(creaTexto);
+botonRegresaInicio.id = 'botonRegresaInicio';
 
-const containerImage = (data) => {
+const containerImage = (data) => { // array de objeto
   const sectionElement = document.createElement('section'); // creando sección de datos
   sectionElement.innerHTML = `
   <section class ="ordenar">
   <img class = "imagen" src= ${data.image}>
   <p class ="nombre"> ${data.name} </p>
-  </section>
+  </section>  
   `;
   sectionElement.addEventListener('click', (event) => {
     event.preventDefault();
@@ -45,15 +49,17 @@ const containerImage = (data) => {
              <li class ="name">Hair Colour: ${data.hairColour}</li>   
              <li class ="name">Actor: ${data.actor}</li>    
           </ul>
+          
    </section>
     `;
   });
   return sectionElement;
 };
+
 for (let i = 0; i < POTTER.length; i += 1) {
   vista2.appendChild(containerImage(POTTER[i]));
-  // añade un hijo más, no borra nada como el innerHTML
-} // data = POTTER[i] <- argumento
+  vista2.appendChild(botonRegresaInicio);
+}
 
 // empezando mis eventos
 btnpersonajes.addEventListener('click', (event) => {
@@ -103,31 +109,27 @@ selectRoles.addEventListener('change', (event) => {
     }
   }
 });
-const imagePatronus = (data) => {
-  let newPatronum = '';
-  for (let i = 0; i < data.length; i += 1) {
-    newPatronum += `
-    <section class = "ordenar">
-    <img class ="imagen" src=${data[i].image}>
-    <p class ="nombre"> ${data[i].name} </p>
-    <p class ="nombre"> ${data[i].patronus} </p>
-    </section>
-    `;
-  }
-  return newPatronum;
-};
-patronum.addEventListener('click', (event) => {
-  event.preventDefault();
-  btnpersonajes.classList.add('hide');
-  btnvaritas.classList.add('hide');
-  btnpatronum.classList.add('hide');
-  vista4.classList.remove('hide');
-  const filterpatronus1 = filterPatronus(POTTER, 'patronus');
-  vista4.innerHTML = imagePatronus(filterpatronus1);
+// creando mi botón de regresar
+const botonRegresaInicio1 = document.createElement('button');
+const textoDeMiboton1 = document.createTextNode('Regresa Al inicio');
+botonRegresaInicio1.appendChild(textoDeMiboton1);
+botonRegresaInicio1.id = 'botonRegresaInicio';
+// dándole un evento a mi botón
+botonRegresaInicio1.addEventListener('click', () => {
+  vista3.classList.add('hide');
+  btnpersonajes.classList.remove('hide');
+  btnvaritas.classList.remove('hide');
+  btnpatronum.classList.remove('hide');
 });
+// creando una sección donde estarán mis elementos
+const seccionNueva1 = document.createElement('section');
+seccionNueva1.id = 'datosDevaritas';
+vista3.appendChild(botonRegresaInicio1);
+vista3.appendChild(seccionNueva1);
+
 const imageVaritas = (data) => {
   let newVaritas = '';
-  for (let i = 0; i < data.length; i += 1) {
+  for (let i = 0; i < data.length; i += 1) { // i => índice
     newVaritas += `
       <section class="ordenar">
         <img class="imagen" src=${data[i].image}>
@@ -147,5 +149,42 @@ btnvaritas.addEventListener('click', (event) => {
   btnpatronum.classList.add('hide');
   vista3.classList.remove('hide');
   const filterVaritas1 = filterVaritas(POTTER, 'wand');
-  vista3.innerHTML = imageVaritas(filterVaritas1);
+  seccionNueva1.innerHTML = imageVaritas(filterVaritas1);
+});
+const botonRegresaInicio2 = document.createElement('button');
+const textoDeMiboton2 = document.createTextNode('Regresa al inicio');
+botonRegresaInicio2.appendChild(textoDeMiboton2);
+botonRegresaInicio2.id = 'botonRegresaInicio2';
+botonRegresaInicio2.addEventListener('click', () => {
+  vista4.classList.add('hide');
+  btnpersonajes.classList.remove('hide');
+  btnvaritas.classList.remove('hide');
+  btnpatronum.classList.remove('hide');
+});
+const seccionNueva2 = document.createElement('section');
+seccionNueva2.id = 'seccionNueva2';
+vista4.appendChild(botonRegresaInicio2);
+vista4.appendChild(seccionNueva2);
+
+const imagePatronus = (data) => {
+  let newPatronum = '';
+  for (let i = 0; i < data.length; i += 1) {
+    newPatronum += `
+    <section class = "ordenar">
+    <img class ="imagen" src=${data[i].image}>
+    <p class ="nombre"> ${data[i].name} </p>
+    <p class ="nombre"> ${data[i].patronus} </p>
+    </section>
+    `;
+  }
+  return newPatronum;
+};
+btnpatronum.addEventListener('click', (event) => {
+  event.preventDefault();
+  btnpersonajes.classList.add('hide');
+  btnvaritas.classList.add('hide');
+  btnpatronum.classList.add('hide');
+  vista4.classList.remove('hide');
+  const filterpatronus1 = filterPatronus(POTTER, 'patronus');
+  seccionNueva2.innerHTML = imagePatronus(filterpatronus1);
 });
