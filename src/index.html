@@ -8,43 +8,40 @@
     <link rel="stylesheet" href="style.css" /> 
   </head>
   <body> 
-       <header class=encabezado"> 
+       <header class="encabezado"> 
             <section class="contenedor">
                <h1 class="logo">HARRY <span>POTTER </span></h1>
             </section>     
        </header> 
-            <nav id="desplegable" class="">
-                <select id="roles" class="hide"> 
-                    <option value ="0"> Roles </option>
+       <main>
+            <nav id="desplegable" class="hide">
+                <select id="roles" class=""> 
+                    <option value ="roles"> Roles </option>
                     <option value="estudiantes"> Estudiantes </option>
                     <option value="profesores">Profesores</option>
                 </select> 
-                <select id="casas" class="hide"> 
-                     <option value="0"> Casas </option> 
+                <select id="casas" class=""> 
+                     <option value="casas"> Casas </option> 
                      <option value="Gryffindor">Gryffindor </option>  
                      <option value="Slytherin">Slytherin</option>  
                      <option value="Hufflepuff">Hufflepuff</option>  
                      <option value="Ravenclaw">Ravenclaw</option> 
                 </select> 
             </nav>
-            <main class="">
-            <section id="vista1" class="">
+            <section class ="btnsInicio">
                <button id="btnpersonajes"></button>
                <button id="btnvaritas"></button>
                <button id="btnpatronum"></button>        
             </section>
-           
-            <section id="vista2" class="hide">
-             
-            </section>
-            <section id="vista3" class="hide">  </section>
-            <section id="vista4" class="hide">
-            </section>
+        
+            <section id="vista2" class="hide"></section>
+            <section id="vista3" class="hide"></section>
+            <section id="vista4" class="hide"></section>
             <section id="datosPersonaje" class="hide"></section> 
-          </main>
+          
 
           <footer></footer>
-  
+        </main>
     <script type="module" src="main.js"></script>
   </body>
 </html>

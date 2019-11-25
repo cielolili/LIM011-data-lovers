@@ -59,6 +59,10 @@ header{
     margin-left: 60px;
     border-radius: 50%;
 }
+#btnsInicio{
+    display: flex;
+    flex-direction: column;
+}
 .imagen{
     height: 100px;
     width: 100px;
@@ -109,15 +113,20 @@ h2{
    margin-top: 20px;
 }
 .nombre{
-    font-size: 10px;
+    font-size: 8px;
     color: white;
-    margin-left: 10px;
+    margin-left: 5px;
     text-transform: capitalize;
+
 }
 li{
     list-style: none;
 }
 @media only screen and (min-width: 961px) {
+    *{
+        margin: 0%;
+        padding: 0%;
+    }
     .contenedor{
         width: 200px;
         max-width: 1000px;
@@ -135,34 +144,27 @@ li{
         width: 400px;
         height: 400px;
         margin-top: 50px;
-        margin-left: 20px;   
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        
     }
     #btnvaritas{
         background-image: url(IMG/varitas.gif);
         width: 400px;
         height: 400px;
         margin-top: 50px;
-        margin-left: 20px;    
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-       
     }
     #btnpatronum{
         background-image: url(IMG/patronus.gif);
         width: 400px;
         height: 400px;
         margin-top: 50px;
-        margin-left: 20px;    
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        
-       
     }
     .imagen{
         float: left;
@@ -182,7 +184,7 @@ li{
           50% {border-color: lightblue;}
         }
     .nombre{
-        font-size: 22px;
+        font-size: 15px;
         color: white;
         margin-left: 30px;
         text-transform: capitalize;
@@ -198,6 +200,7 @@ li{
     } 
     .ordenar1{
         background-color: lightblue;
+        opacity: 90%;
         height: 400px;
         padding: 20px;
     }
@@ -217,17 +220,7 @@ li{
         margin-left: 190px;
         font-size: 30px;
     } 
-    #vista1{
+    .btnsInicio{
         display: flex;
-        justify-content: center;
-    }
-    #botonRegresaInicio{
-        background-color: lightblue;
-    }
-    #botonRegresaInicio1{
-        background-color: lightblue;
-        
-    }
-    #botonRegresaInicio2{
-        background-color: lightblue;
-    }
+        justify-content: space-around;
+    }}
