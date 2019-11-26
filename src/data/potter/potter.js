@@ -1,5 +1,4 @@
 export default [
-  // elementos = objetos, indice => cada objeto
   {
     name: 'Harry Potter',
     species: 'human',
